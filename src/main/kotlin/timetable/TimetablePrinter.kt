@@ -16,8 +16,8 @@ class TimetablePrinter {
             header.forEach { print(String.format("%-${cellLength}s|", it)) }
             println()
             // Header region
-            timetable.forEachIndexed { index, row ->
-                print("|${String.format("%-${cellLength}s", horas[index])}|")
+            timetable.forEachIndexed { timetableIndex, row ->
+                print("|${String.format("%-${cellLength}s", horas[timetableIndex])}|")
 
                 row.forEach { courseClassroom ->
                     val text = courseClassroom?.let { "${it.course}-${it.classroom}" } ?: "·".repeat(12)
