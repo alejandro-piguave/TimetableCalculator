@@ -1,3 +1,7 @@
+package timetable
+
+import CourseClassRoom
+
 class TimetablePrinter {
 
     fun print(timetables: List<List<List<CourseClassRoom?>>>) {
