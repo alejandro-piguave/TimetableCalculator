@@ -1,19 +1,10 @@
-package semester
+package data.semester
 
-import Course
-import CourseSchedule
-import CourseTime
-import DIECINUEVE
-import DIECISIETE
-import JUEVES
-import LUNES
-import MARTES
-import MIERCOLES
-import NUEVE
-import ONCE
-import QUINCE
-import TRECE
-import VIERNES
+import data.course.Course
+import data.course.CourseSchedule
+import data.course.CourseTime
+import data.days.Day
+import data.hours.HourPeriod
 
 val secondSemester = listOf(
     Course(
@@ -22,29 +13,29 @@ val secondSemester = listOf(
             CourseSchedule(
                 "3301",
                 listOf(
-                    CourseTime(MIERCOLES, NUEVE),
-                    CourseTime(VIERNES, ONCE)
+                    CourseTime(Day.WEDNESDAY, HourPeriod.NINE),
+                    CourseTime(Day.FRIDAY, HourPeriod.ELEVEN)
                 ),
             ),
             CourseSchedule(
                 "CIC2",
                 listOf(
-                    CourseTime(MARTES, NUEVE),
-                    CourseTime(JUEVES, ONCE)
+                    CourseTime(Day.TUESDAY, HourPeriod.NINE),
+                    CourseTime(Day.THURSDAY, HourPeriod.ELEVEN)
                 )
             ),
             CourseSchedule(
                 "3301",
                 listOf(
-                    CourseTime(MARTES, DIECINUEVE),
-                    CourseTime(MIERCOLES, DIECINUEVE)
+                    CourseTime(Day.TUESDAY, HourPeriod.NINETEEN),
+                    CourseTime(Day.WEDNESDAY, HourPeriod.NINETEEN)
                 )
             ),
             CourseSchedule(
                 "CIC2",
                 listOf(
-                    CourseTime(MARTES, DIECINUEVE),
-                    CourseTime(MIERCOLES, DIECINUEVE)
+                    CourseTime(Day.TUESDAY, HourPeriod.NINETEEN),
+                    CourseTime(Day.WEDNESDAY, HourPeriod.NINETEEN)
                 )
             )
         )
@@ -55,29 +46,29 @@ val secondSemester = listOf(
             CourseSchedule(
                 "3301",
                 listOf(
-                    CourseTime(MIERCOLES, TRECE),
-                    CourseTime(VIERNES, NUEVE)
+                    CourseTime(Day.WEDNESDAY, HourPeriod.THIRTEEN),
+                    CourseTime(Day.FRIDAY, HourPeriod.NINE)
                 ),
             ),
             CourseSchedule(
                 "CIC2",
                 listOf(
-                    CourseTime(MIERCOLES, ONCE),
-                    CourseTime(VIERNES, TRECE)
+                    CourseTime(Day.WEDNESDAY, HourPeriod.ELEVEN),
+                    CourseTime(Day.FRIDAY, HourPeriod.THIRTEEN)
                 )
             ),
             CourseSchedule(
                 "3301",
                 listOf(
-                    CourseTime(LUNES, DIECISIETE),
-                    CourseTime(JUEVES, DIECINUEVE)
+                    CourseTime(Day.MONDAY, HourPeriod.SEVENTEEN),
+                    CourseTime(Day.THURSDAY, HourPeriod.NINETEEN)
                 )
             ),
             CourseSchedule(
                 "CIC2",
                 listOf(
-                    CourseTime(LUNES, DIECISIETE),
-                    CourseTime(JUEVES, DIECISIETE)
+                    CourseTime(Day.MONDAY, HourPeriod.SEVENTEEN),
+                    CourseTime(Day.THURSDAY, HourPeriod.SEVENTEEN)
                 )
             )
         )
@@ -88,19 +79,19 @@ val secondSemester = listOf(
             CourseSchedule(
                 "3301",
                 listOf(
-                    CourseTime(MARTES, ONCE),
+                    CourseTime(Day.TUESDAY, HourPeriod.ELEVEN),
                 ),
             ),
             CourseSchedule(
                 "CIC2",
                 listOf(
-                    CourseTime(VIERNES, NUEVE),
+                    CourseTime(Day.FRIDAY, HourPeriod.NINE),
                 )
             ),
             CourseSchedule(
                 "3301",
                 listOf(
-                    CourseTime(LUNES, DIECINUEVE),
+                    CourseTime(Day.MONDAY, HourPeriod.NINETEEN),
                 )
             ),
         )
@@ -112,22 +103,22 @@ val secondSemester = listOf(
             CourseSchedule(
                 "CIC3",
                 listOf(
-                    CourseTime(MIERCOLES, ONCE),
-                    CourseTime(VIERNES, NUEVE)
+                    CourseTime(Day.WEDNESDAY, HourPeriod.ELEVEN),
+                    CourseTime(Day.FRIDAY, HourPeriod.NINE)
                 )
             ),
             CourseSchedule(
                 "CIC1",
                 listOf(
-                    CourseTime(MARTES, TRECE),
-                    CourseTime(VIERNES, ONCE)
+                    CourseTime(Day.TUESDAY, HourPeriod.THIRTEEN),
+                    CourseTime(Day.FRIDAY, HourPeriod.ELEVEN)
                 )
             ),
             CourseSchedule(
                 "CIC3",
                 listOf(
-                    CourseTime(MARTES, DIECINUEVE),
-                    CourseTime(JUEVES, DIECINUEVE)
+                    CourseTime(Day.TUESDAY, HourPeriod.NINETEEN),
+                    CourseTime(Day.THURSDAY, HourPeriod.NINETEEN)
                 )
             ),
         )
@@ -139,22 +130,22 @@ val secondSemester = listOf(
             CourseSchedule(
                 "CIC3",
                 listOf(
-                    CourseTime(MARTES, ONCE),
-                    CourseTime(JUEVES, ONCE)
+                    CourseTime(Day.TUESDAY, HourPeriod.ELEVEN),
+                    CourseTime(Day.THURSDAY, HourPeriod.ELEVEN)
                 )
             ),
             CourseSchedule(
                 "CIC1",
                 listOf(
-                    CourseTime(MIERCOLES, ONCE),
-                    CourseTime(JUEVES, TRECE)
+                    CourseTime(Day.WEDNESDAY, HourPeriod.ELEVEN),
+                    CourseTime(Day.THURSDAY, HourPeriod.THIRTEEN)
                 )
             ),
             CourseSchedule(
                 "CIC3",
                 listOf(
-                    CourseTime(MARTES, QUINCE),
-                    CourseTime(JUEVES, QUINCE)
+                    CourseTime(Day.TUESDAY, HourPeriod.FIFTEEN),
+                    CourseTime(Day.THURSDAY, HourPeriod.FIFTEEN)
                 )
             ),
         )
@@ -166,22 +157,22 @@ val secondSemester = listOf(
             CourseSchedule(
                 "CIC3",
                 listOf(
-                    CourseTime(MARTES, NUEVE),
-                    CourseTime(JUEVES, NUEVE)
+                    CourseTime(Day.TUESDAY, HourPeriod.NINE),
+                    CourseTime(Day.THURSDAY, HourPeriod.NINE)
                 )
             ),
             CourseSchedule(
                 "CIC1",
                 listOf(
-                    CourseTime(MARTES, ONCE),
-                    CourseTime(JUEVES, ONCE)
+                    CourseTime(Day.TUESDAY, HourPeriod.ELEVEN),
+                    CourseTime(Day.THURSDAY, HourPeriod.ELEVEN)
                 )
             ),
             CourseSchedule(
                 "CIC3",
                 listOf(
-                    CourseTime(MARTES, DIECISIETE),
-                    CourseTime(JUEVES, DIECISIETE)
+                    CourseTime(Day.TUESDAY, HourPeriod.SEVENTEEN),
+                    CourseTime(Day.THURSDAY, HourPeriod.SEVENTEEN)
                 )
             ),
         )
@@ -194,15 +185,15 @@ val secondSemester = listOf(
             CourseSchedule(
                 "CIC3",
                 listOf(
-                    CourseTime(MIERCOLES, TRECE),
-                    CourseTime(VIERNES, TRECE)
+                    CourseTime(Day.WEDNESDAY, HourPeriod.THIRTEEN),
+                    CourseTime(Day.FRIDAY, HourPeriod.THIRTEEN)
                 )
             ),
             CourseSchedule(
                 "CIC3",
                 listOf(
-                    CourseTime(LUNES, DIECINUEVE),
-                    CourseTime(MIERCOLES, DIECISIETE)
+                    CourseTime(Day.MONDAY, HourPeriod.NINETEEN),
+                    CourseTime(Day.WEDNESDAY, HourPeriod.SEVENTEEN)
                 )
             ),
         )

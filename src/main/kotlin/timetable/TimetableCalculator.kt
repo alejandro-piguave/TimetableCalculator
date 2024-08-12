@@ -1,8 +1,8 @@
 package timetable
 
-import Course
-import CourseClassRoom
-import CourseTime
+import data.course.Course
+import data.course.CourseClassRoom
+import data.course.CourseTime
 
 class TimetableCalculator(private val validator: SolutionValidator) {
     companion object {
@@ -22,7 +22,7 @@ class TimetableCalculator(private val validator: SolutionValidator) {
             val currentSchedule = courses[depth].courseSchedule[i]
             if(canAdd(currentSolution, currentSchedule.times)) {
                 val courseClassRoom = CourseClassRoom(courses[depth].name, currentSchedule.classroom)
-                currentSchedule.times.forEach { currentSolution[it.row][it.column] = courseClassRoom }
+                currentSchedule.times.forEach { currentSolution[it.hourPeriod.ordinal][it.day.ordinal] = courseClassRoom }
                 if(depth == courses.size -1) {
                     if(validator.isValidSolution(currentSolution)) {
                         val solutionCopy = currentSolution.map { solutionRow -> solutionRow.map { it } }
@@ -31,7 +31,7 @@ class TimetableCalculator(private val validator: SolutionValidator) {
                 } else {
                     recursiveCalculate(courses, solutions, currentSolution, depth + 1)
                 }
-                currentSchedule.times.forEach { currentSolution[it.row][it.column] = null }
+                currentSchedule.times.forEach { currentSolution[it.hourPeriod.ordinal][it.day.ordinal] = null }
             }
         }
 
@@ -39,7 +39,7 @@ class TimetableCalculator(private val validator: SolutionValidator) {
 
 
     private fun canAdd(timetable: Array<Array<CourseClassRoom?>>, times: List<CourseTime>): Boolean {
-        return times.all { timetable[it.row][it.column] == null }
+        return times.all { timetable[it.hourPeriod.ordinal][it.day.ordinal] == null }
     }
 
 }

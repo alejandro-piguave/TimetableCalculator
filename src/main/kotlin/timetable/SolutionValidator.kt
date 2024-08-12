@@ -1,6 +1,6 @@
 package timetable
 
-import CourseClassRoom
+import data.course.CourseClassRoom
 import timetable.TimetableCalculator.Companion.COLUMNS
 import timetable.TimetableCalculator.Companion.ROWS
 

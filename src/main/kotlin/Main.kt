@@ -1,4 +1,4 @@
-import semester.firstSemester
+import data.semester.firstSemester
 import timetable.SolutionValidator
 import timetable.TimetableCalculator
 import timetable.TimetablePrinter
