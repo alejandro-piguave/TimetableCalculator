@@ -1,24 +1,24 @@
 package timetable
 
 import data.course.CourseClassRoom
-import timetable.TimetableCalculator.Companion.COLUMNS
-import timetable.TimetableCalculator.Companion.ROWS
+import data.days.Day
+import data.hours.HourPeriod
 
-class SolutionValidator(private val config: Config = Config()) {
+class TimetableValidator(private val config: Config = Config()) {
 
     fun isValidSolution(currentSolution: Array<Array<CourseClassRoom?>>): Boolean {
-        val hasDoubleGaps = (0 until COLUMNS).any { getColumnGapCount(currentSolution, it) > 1 }
-        val daysWithGaps = (0 until COLUMNS).count { getColumnGapCount(currentSolution, it) == 1 }
+        val hasDoubleGaps = (0 until Day.values().size).any { getColumnGapCount(currentSolution, it) > 1 }
+        val daysWithGaps = (0 until Day.values().size).count { getColumnGapCount(currentSolution, it) == 1 }
 
         if(!config.allowDoubleGaps && hasDoubleGaps) return false
         if(config.maxDaysWithGaps != null && daysWithGaps > config.maxDaysWithGaps) return false
-        if(config.disallowClassInDay != null && hasClassInDay(currentSolution, config.disallowClassInDay)) return false
+        if(config.disallowClassIn != null && hasClassInDay(currentSolution, config.disallowClassIn.ordinal)) return false
 
         return true
     }
 
     private fun hasClassInDay(currentSolution: Array<Array<CourseClassRoom?>>, day: Int): Boolean {
-        return (0 until ROWS).any { currentSolution[it][day] != null }
+        return (0 until HourPeriod.values().size).any { currentSolution[it][day] != null }
     }
 
     private fun getColumnGapCount(timetable: Array<Array<CourseClassRoom?>>, column: Int): Int {
@@ -37,6 +37,6 @@ class SolutionValidator(private val config: Config = Config()) {
         return gapCount
     }
 
-    data class Config(val allowDoubleGaps: Boolean = false, val maxDaysWithGaps: Int? = null, val disallowClassInDay: Int? = null)
+    data class Config(val allowDoubleGaps: Boolean = false, val maxDaysWithGaps: Int? = null, val disallowClassIn: Day? = null)
 
 }

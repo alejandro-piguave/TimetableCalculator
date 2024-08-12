@@ -3,15 +3,12 @@ package timetable
 import data.course.Course
 import data.course.CourseClassRoom
 import data.course.CourseTime
+import data.days.Day
+import data.hours.HourPeriod
 
-class TimetableCalculator(private val validator: SolutionValidator) {
-    companion object {
-        const val ROWS = 6
-        const val COLUMNS = 5
-    }
-
+class TimetableCalculator(private val validator: TimetableValidator) {
     fun calculate(courses: List<Course>): List<List<List<CourseClassRoom?>>> {
-        val currentTimetable = Array<Array<CourseClassRoom?>>(ROWS) { Array(COLUMNS) { null } }
+        val currentTimetable = Array<Array<CourseClassRoom?>>(HourPeriod.values().size) { Array(Day.values().size) { null } }
         val solutions = mutableListOf<List<List<CourseClassRoom?>>>()
         recursiveCalculate(courses, solutions, currentTimetable, 0)
         return solutions

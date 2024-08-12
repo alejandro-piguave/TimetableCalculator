@@ -139,6 +139,8 @@ val firstSemester = listOf(
             ),
         )
     ),
+
+
     Course(
         "GPR",
         listOf(
@@ -188,6 +190,6 @@ val firstSemester = listOf(
                     CourseTime(Day.WEDNESDAY, HourPeriod.NINETEEN)
                 )),
         )
-    ),
+    )
 )
 
